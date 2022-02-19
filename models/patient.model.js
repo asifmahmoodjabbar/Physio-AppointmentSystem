@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const patientSchema = mongoose.Schema({
   firstName: {
@@ -23,3 +23,5 @@ const patientSchema = mongoose.Schema({
       unique: true,
   },
 });
+
+module.exports = mongoose.model('Patient', patientSchema);
