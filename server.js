@@ -4,10 +4,12 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
+
 // environment variables
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URL);
+mongoose
+  .connect(process.env.MONGODB_URL)
 
 const app = express();
 
@@ -19,6 +21,10 @@ app.use(expressLayouts);
 app.use(express.urlencoded({ extended: false }));
 // hooking up the public folder
 app.use(express.static("public"));
+
+
+//All middlewares defined under.
+
 // middleware for setting up the session
 app.use(
   session({
@@ -40,9 +46,25 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
+//All routes defined under.
+
 // root route
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+//appointments route
+const appointmentRoutes = require('./routes/appointment.routes');
+app.use('/appointment', appointmentRoutes);
+
+
+const patientRoutes = require('./routes/patient.routes');
+app.use('/patient', patientRoutes)
+
+const doctorRoutes = require('./routes/doctor.routes');
+app.use('/doctor', doctorRoutes)
+
 
 app.listen(process.env.PORT);

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const doctorSchema = mongoose.Schema({
   firstName: {
@@ -15,7 +15,7 @@ const doctorSchema = mongoose.Schema({
     unique: true,
   },
   email: {
-    type: email,
+    type: String,
     required: true,
     unique: true,
   },

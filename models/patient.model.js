@@ -18,7 +18,7 @@ const patientSchema = mongoose.Schema({
       required: true,
   },
   email: {
-      type: email,
+      type: String,
       required: true,
       unique: true,
   },
