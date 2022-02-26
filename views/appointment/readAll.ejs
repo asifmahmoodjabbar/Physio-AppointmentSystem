@@ -1,0 +1,11 @@
+
+<% appointments.forEach(function(appointment) { %>
+ <ul>
+<li>Doctor: <%= appointment.doctor.firstName %> <%= appointment.doctor.lastName %></li>
+<li>Patient: <%= appointment.patient.firstName %> <%= appointment.patient.lastName %></li>
+<li>Date: <%= appointment.date %></li>
+<li>Symptoms: <%= appointment.symptoms %></li>
+<li>Prescription: <%= appointment.prescription %></li>
+<br>
+</ul>
+<% }) %>  

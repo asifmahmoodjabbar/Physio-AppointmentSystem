@@ -1,5 +1,5 @@
 const express = require("express");
-const doctorModel = require("../models/doctor.model");
+//const doctorModel = require("../models/doctor.model");
 const Doctor = require("../models/doctor.model");
 
 const router = express.Router();
@@ -33,9 +33,13 @@ res.render('doctor/create');
 
 
 
-router.get('/profile', (req, res) => {
-  res.render('doctor/profile')
+router.get('/profile', async(req, res) => {
+  const doctors = await Doctor.find()
+  res.render('doctor/profile', {doctors})
 })
 
+router.post('/profile', async (req, res) => {
+  res.render('doctor/profile')
+})
 
 module.exports = router;

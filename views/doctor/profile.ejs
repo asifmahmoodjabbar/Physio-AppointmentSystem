@@ -1,10 +1,12 @@
 
-<ul>
-<% doctors.foreach(function(doctor) { %>
-<li>First Name: <%doctor.firstName%></li>
-<li>First Name: <%doctor.lastName%></li>
-<li>First Name: <%doctor.phoneNumber%></li>
-<li>First Name: <%doctor.email%></li>
-<li>First Name: <%doctor.speciality%></li>
-<% } %>   
+
+<% doctors.forEach(function(doctor) { %>
+ <ul>
+<li>First Name: <%= doctor.firstName %></li>
+<li>Last Name: <%= doctor.lastName %></li>
+<li>Phone Number: <%= doctor.phoneNumber %></li>
+<li>Email: <%= doctor.email %></li>
+<li>Speciality: <%= doctor.speciality %></li>
+<br>
 </ul>
+<% }) %>   

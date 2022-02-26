@@ -1,16 +1,32 @@
-<form>
-<h1>Welcome on appointments page</h1>
-<br>
-<label for="doctor">Doctor</label>
-<input type="text" name="doctor" id="doctor" placeholder="Doctor Name">
-<br>
-<label for="patient">Patient</label>
-<input type="text" name="patient" id="patient" placeholder="Patient Name">
-<br>
-<label for="symptoms">Symptoms</label>
-<textarea name="symptoms" id="symptoms" cols="30" rows="10">Symptoms</textarea>
-<br>
-<label for="prescription">Prescription</label>
-<textarea name="prescription" id="" cols="30" rows="10">Prescription</textarea>
+<form action="/appointment" method="post">
+  <h1>Welcome on appointments page</h1>
+  <br />
+  <label for="doctor">Doctor</label>
+  <select name="doctor" id="doctor">
+    <% doctors.forEach(function(doctor) { %>
+    <option value="<%= doctor.id %>">
+      <%= doctor.firstName %> <%= doctor.lastName %>
+    </option>
+    <% })%>
+  </select>
+  <br />
+  <label for="patient">Patient</label>
+  <select name="patient">
+    <% patients.forEach(function(patient) { %>
+    <option value="<%= patient.id %>">
+      <%= patient.firstName %> <%= patient.lastName %>
+    </option>
+    <% })%>
+  </select>
+  <br />
+  <label for="start">Date:</label>
+<input type="date" name="date">  
+       <br>
+  <label for="symptoms">Symptoms</label>
+  <textarea name="symptoms" id="symptoms" cols="30" rows="4">Symptoms</textarea>
+  <br />
+  <label for="prescription">Prescription</label>
+  <textarea name="prescription" id="" cols="30" rows="4">Prescription</textarea>
+  <br />
+  <button type="submit">Submit</button>
 </form>
-

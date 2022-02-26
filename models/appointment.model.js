@@ -17,6 +17,10 @@ const appointmentSchema = mongoose.Schema({
     required: true,
     ref: "Patient",
   },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Appointment", appointmentSchema);   
