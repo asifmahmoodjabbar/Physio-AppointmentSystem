@@ -4,12 +4,14 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
+const Doctor = require('./models/doctor.model');
+const Patient = require('./models/patient.model');
+const Appointment = require('./models/appointment.model');
 
 // environment variables
 dotenv.config();
 
-mongoose
-  .connect(process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGODB_URL)
 
 const app = express();
 
