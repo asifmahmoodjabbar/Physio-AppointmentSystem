@@ -1,4 +1,5 @@
 const express = require("express");
+const req = require("express/lib/request");
 //const doctorModel = require("../models/doctor.model");
 const Doctor = require("../models/doctor.model");
 
@@ -8,27 +9,16 @@ router.get('/', (req, res) => {
   res.render('doctor/create')
 });
 
-/*
-router.post('/', async (req, res) =>{
-try {
-  Doctor.create(req.body);
-  res.redirect('/');
-} catch (error) { 
-  console.error(error);
-  res.status(500).send('Something went wrong');
-}
-});
-*/
+
 
 router.post('/', async (req, res) => {
 await Doctor.create({
-  firstName: req.body.firstName,
-  lastName: req.body.lastName,
+  name: req.body.name,  
   phoneNumber: req.body.phoneNumber,
   email: req.body.email,
   speciality: req.body.speciality,
 });
-res.render('doctor/create');
+res.redirect('doctor/profile');
 });
 
 
@@ -41,5 +31,10 @@ router.get('/profile', async(req, res) => {
 router.post('/profile', async (req, res) => {
   res.render('doctor/profile')
 })
-
+/*
+router.get'/profile/:id', async(req, res) => {
+  const doctor = await Doctor.findByIdAndUpdate(req.params.id)
+  res.render('edit', {doctor}) 
+})
+*/
 module.exports = router;

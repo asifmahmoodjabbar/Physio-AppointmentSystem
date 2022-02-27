@@ -11,13 +11,12 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   await Patient.create({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    name: req.body.name,    
     age: req.body.age,
     phoneNumber: req.body.phoneNumber,
     email: req.body.email,    
   })
-  res.render('patient/create')
+  res.redirect('patient/profile')
 })
 
 
