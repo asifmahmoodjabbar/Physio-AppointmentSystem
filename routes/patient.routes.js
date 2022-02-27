@@ -21,6 +21,17 @@ router.post('/', async (req, res) => {
 })
 
 
+router.get('/profile', async (req, res) => {
+  const patients = await Patient.find()
+  res.render('patient/profile', { patients })
+})
+
+router.post('/profile', async (req, res) => {
+  res.render('patient/profile')
+})
+
+
+
 
 
 

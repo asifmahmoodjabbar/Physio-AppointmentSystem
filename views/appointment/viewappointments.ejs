@@ -1,4 +1,5 @@
-
+<h2>Appointments schedule</h2>
+<br>
 <% appointments.forEach(function(appointment) { %>
  <ul>
 <li>Doctor: <%= appointment.doctor.firstName %> <%= appointment.doctor.lastName %></li>
@@ -7,5 +8,7 @@
 <li>Symptoms: <%= appointment.symptoms %></li>
 <li>Prescription: <%= appointment.prescription %></li>
 <br>
+<button type="submit">Edit</button>
+<button type="submit">Delete</button>
 </ul>
 <% }) %>  

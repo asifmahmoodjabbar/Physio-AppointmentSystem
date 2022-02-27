@@ -8,7 +8,8 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   const doctors = await Doctor.find()
   const patients = await Patient.find()
-  res.render('appointment/create', { doctors, patients })
+  const minDate = getMinDate()
+  res.render('appointment/create', { doctors, patients, minDate })
 })
 
 router.post('/', async (req, res) => {
@@ -22,19 +23,54 @@ router.post('/', async (req, res) => {
   res.redirect('/appointment')
 })
 
-
-router.get('/readAll', async (req, res) => {
+router.get('/viewappointments', async (req, res) => {
   const appointments = await Appointment.find()
     .populate('doctor')
-    .populate('patient') 
+    .populate('patient')
 
   //const doctors = await (await Doctor.find()
   // const patients = await Patient.find()
-  res.render('appointment/readAll', { appointments })  
+  res.render('appointment/viewappointments', { appointments })
 })
 
-router.post('/readAll', async (req, res) => {
-  res.render('appointment/readAll')
+router.post('/viewappointments', async (req, res) => {
+  res.render('appointment/viewappointments')
 })
+
+/*
+// form for updating an existing post
+router.get('/edit/:id', async (req, res) => {
+  const appointment = await Appointment.findById(req.params.id)
+  res.render('editAppointment', { appointment })
+})
+
+// route for handling the update of an existing post
+router.put(
+  '/:id',
+  async (req, res, next) => {
+    req.appointment = await Appointment.findById(req.params.id)
+    next()
+  },
+  saveAppointmentAndRedirect('editAppointment')
+)
+
+*/
+function getMinDate() {
+  let today = new Date()
+  let dd = today.getDate()
+  let mm = today.getMonth() + 1 //January is 0!
+  const yyyy = today.getFullYear()
+
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+
+  today = `${yyyy}-${mm}-${dd}`
+  return today
+}
 
 module.exports = router
