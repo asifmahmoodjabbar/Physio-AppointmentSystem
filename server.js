@@ -68,15 +68,13 @@ app.use('/patient', patientRoutes)
 const doctorRoutes = require('./routes/doctor.routes');
 app.use('/doctor', doctorRoutes)
 
-app.get('/signin', async (req, res) => {
+app.get('/signin',  (req, res) => {
   res.render('signin')
 })
 
-app.get('/signup', async (req, res) => {
+app.get('/signup',  (req, res) => {
   res.render('signup')
 })
 
-app.get('/signout', async (req, res) => {
-  res.redirect('home')
-})
+
 app.listen(process.env.PORT);
