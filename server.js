@@ -4,6 +4,7 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
+const methodOverride = require("method-override")
 const Doctor = require('./models/doctor.model');
 const Patient = require('./models/patient.model');
 const Appointment = require('./models/appointment.model');
@@ -23,9 +24,12 @@ app.use(expressLayouts);
 app.use(express.urlencoded({ extended: false }));
 // hooking up the public folder
 app.use(express.static("public"));
-
-
+// required for the app when deployed to Heroku (in production)
+app.set("trust proxy", 1);
 //All middlewares defined under.
+
+//middle ware for using more http verbs in the html
+app.use(methodOverride("_method"))
 
 // middleware for setting up the session
 app.use(
@@ -44,9 +48,11 @@ app.use(
 );
 // middle ware for making the user available to all templates
 app.use((req, res, next) => {
+  res.locals.today = getMinDate()
   res.locals.currentUser = req.session.currentUser;
   next();
 });
+
 
 
 
@@ -75,6 +81,34 @@ app.get('/signin',  (req, res) => {
 app.get('/signup',  (req, res) => {
   res.render('signup')
 })
+
+app.get('/home', (req, res) => {
+  res.render('home')
+})
+
+
+app.get('/signout', (req, res) => {
+  res.redirect('home')
+})
+
+
+function getMinDate() {
+  let today = new Date()
+  let dd = today.getDate()
+  let mm = today.getMonth() + 1 //January is 0!
+  const yyyy = today.getFullYear()
+
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+
+  today = `${yyyy}-${mm}-${dd}`
+  return today
+}
 
 
 app.listen(process.env.PORT);
