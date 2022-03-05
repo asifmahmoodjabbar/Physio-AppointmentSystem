@@ -14,6 +14,7 @@ const appointmentSchema = mongoose.Schema({
   date: {
     type: Date,
     default: Date.now,
+    required: true,
   },
   symptoms: {
     type: String,

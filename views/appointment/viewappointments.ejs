@@ -5,14 +5,14 @@
    
  <ul>
    <br>
-<li>Doctor: <%= appointment.doctor.name %></li>
-<li>Patient: <%= appointment.patient.name %></li>
-<li>Date: <%= appointment.date %></li>
+<li>Doctor Name: <%= appointment.doctor.name %></li>
+<li>Patient Name: <%= appointment.patient.name %></li>
+<li>Appointment Date: <%= appointment.date %></li>
 <li>Symptoms: <%= appointment.symptoms %></li>
 <li>Prescription: <%= appointment.prescription %></li>
 
-<button type="submit"><a href="/appointment/edit/<%= appointment.id %>">Update</a></button>
-<button type="submit"><a href="/appointment/delete/<%= appointment.id %>">Delete</a></button>
+<button type="submit" class="btn"><a href="/appointment/edit/<%= appointment.id %>" class="btn">Update</a></button>
+<button type="submit" class="btn"><a href="/appointment/delete/<%= appointment.id %>" class="btn">Delete</a></button>
 
 </ul>
 <!-- </form> -->

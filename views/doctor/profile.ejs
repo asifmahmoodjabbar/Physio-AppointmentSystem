@@ -1,14 +1,15 @@
 <h1>Doctor's Profile</h1>
-<br />
+
 <% doctors.forEach(function(doctor) { %>
 <ul>
+  <br>
   <li>Name: <%= doctor.name %></li>
   <li>Phone Number: <%= doctor.phoneNumber %></li>
   <li>Email: <%= doctor.email %></li>
   <li>Speciality: <%= doctor.speciality %></li>
 
-  <button type="submit">
-    <a href="/doctor/profile/<%= doctor.id %>">Update</a>
+  <button type="submit" class="btn">
+    <a href="/doctor/profile/<%= doctor.id %>" class="btn">Update</a>
   </button>
 </ul>
 <% }) %>
