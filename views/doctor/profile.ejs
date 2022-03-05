@@ -1,18 +1,17 @@
-
-
+<h1>Doctor's Profile</h1>
+<br />
 <% doctors.forEach(function(doctor) { %>
- <ul>
-<li>Name: <%= doctor.name %></li>
-<li>Phone Number: <%= doctor.phoneNumber %></li>
-<li>Email: <%= doctor.email %></li>
-<li>Speciality: <%= doctor.speciality %></li>
-<br>
-<a href="/doctor/profile/<%= doctor.id %>">update</a>
+<ul>
+  <li>Name: <%= doctor.name %></li>
+  <li>Phone Number: <%= doctor.phoneNumber %></li>
+  <li>Email: <%= doctor.email %></li>
+  <li>Speciality: <%= doctor.speciality %></li>
+
+  <button type="submit">
+    <a href="/doctor/profile/<%= doctor.id %>">Update</a>
+  </button>
 </ul>
-<% }) %>   
-<br>
-<br>
-<br>
+<% }) %>
 
 <!-- 
 <table>
@@ -23,11 +22,11 @@
     <th>Speciality</th>
   </tr>
   -->
-  <!-- 
+<!-- 
     
   <% doctors.forEach(function(doctor) { %>
     -->
-    <!-- 
+<!-- 
   <tr>         
     <td><%= doctor.name %>e</td>
     <td><%= doctor.phoneNumber %></td>

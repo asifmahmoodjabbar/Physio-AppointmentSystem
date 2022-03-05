@@ -1,0 +1,19 @@
+<h1>Update patient's profile</h1>
+<br />
+<form action="/patient/profile/<%= patient.id %>" method="POST">
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" value="<%= patient.name %>" placeholder="Name" />
+  <br />
+  <label for="age">Age</label>
+  <input type="number" name="age" id="age" value="<%= patient.age %>" placeholder="Age" />
+  <br />
+  <label for="phoneNumber">Phone Number</label>
+  <input type="text" name="phoneNumber" value="<%= patient.phoneNumber %>" placeholder="Enter phone number" />
+  <br />
+  <label for="email">Email</label>
+  <input type="email" name="email" value="<%= patient.email %>" placeholder="Enter email" />
+   
+  <br>
+  <button type="submit">Submit</button>
+  <button type="submit"><a href="/patient/profile/">Cancle</a></button>
+</form>

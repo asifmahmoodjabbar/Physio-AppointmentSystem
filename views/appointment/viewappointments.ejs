@@ -1,17 +1,19 @@
-<h2>Appointments schedule</h2>
-<br>
+<h2>Appointments</h2>
+
 <% appointments.forEach(function(appointment) { %>
   <!-- <form action="" method="post"> -->
    
  <ul>
+   <br>
 <li>Doctor: <%= appointment.doctor.name %></li>
 <li>Patient: <%= appointment.patient.name %></li>
 <li>Date: <%= appointment.date %></li>
 <li>Symptoms: <%= appointment.symptoms %></li>
 <li>Prescription: <%= appointment.prescription %></li>
-<br>
-<button type="submit"><a href="/appointment/edit/<%= appointment.id %>">Edit</a></button>
+
+<button type="submit"><a href="/appointment/edit/<%= appointment.id %>">Update</a></button>
 <button type="submit"><a href="/appointment/delete/<%= appointment.id %>">Delete</a></button>
+
 </ul>
 <!-- </form> -->
 <% }) %>  

@@ -1,10 +1,18 @@
-
+<br>
+<label for="doctor">Doctor Name</label>
 <input type="text" name="doctor" value="<%= appointments.doctor.name%>" />
 <br />
+<label for="patient">Patient Name</label>
 <input type="text" name="patient" value="<%= appointments.patient.name %>" />
 <br />
+<label for="date">Appointment Date</label>
 <input type="date" name="date" min="<%= today %>"  value="<%= appointments.date %>" />
-<br /><input type="text" name="symptoms" value="<%= appointments.symptoms %>" />
+<br />
+<label for="symptoms">Symptoms</label>
+<input type="text" name="symptoms" value="<%= appointments.symptoms %>" />
+<br>
+<label for="prescription">Prescription</label>
 <input type="text" name="prescription" value="<%= appointments.prescription %>"/>
+<br>
 <button type="submit">Submit</button>
-<a href="/">cancel</a>
+<button type="submit"><a href="/appointment/viewappointments/">Cancle</a></button>

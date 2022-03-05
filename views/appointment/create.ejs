@@ -1,8 +1,8 @@
 
 <form action="/appointment" method="post">
-  <h1>Welcome on appointments page</h1>
+  <h1>Add appointments data</h1>
   <br />
-  <label for="doctor">Doctor</label>
+  <label for="doctor">Doctor Name</label>
   <select name="doctor" id="doctor">
     <% doctors.forEach(function(doctor) { %>
     <option value="<%= doctor.id %>">
@@ -11,7 +11,7 @@
     <% })%>
   </select>
   <br />
-  <label for="patient">Patient</label>
+  <label for="patient">Patient Name</label>
   <select name="patient">
     <% patients.forEach(function(patient) { %>
     <option value="<%= patient.id %>">
@@ -20,7 +20,7 @@
     <% })%>
   </select>
   <br />
-  <label for="start">Date:</label>
+  <label for="date">Appointment Date</label>
 <input type="date" name="date" min="<%= today %>">  
        <br>
   <label for="symptoms">Symptoms</label>

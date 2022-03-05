@@ -1,11 +1,13 @@
 
-
+<h1>Patient's Profile</h1>
+<br>
 <% patients.forEach(function(patient) { %>
  <ul>
 <li>Name: <%= patient.name %></li>
 <li>Age: <%= patient.age %></li>
 <li>Phone Number: <%= patient.phoneNumber %></li>
 <li>Email: <%= patient.email %></li>
-<br>
+<button type="submit"><a href="/patient/profile/<%= patient.id %>">update</a></button>
+
 </ul>
 <% }) %>   
